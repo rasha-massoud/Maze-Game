@@ -28,9 +28,32 @@ document.addEventListener("DOMContentLoaded", function (event) {
             for (var j = 0; j < 5; j++) {
                 document.getElementsByClassName("boundary")[j].style.backgroundColor = " #ff8888";
             }
+            alert("You lost! Move over the Start Button to restart.");
         }
-
     });
+
+    document.getElementById("start").addEventListener("mousemove", function () {
+        for (var j = 0; j < 5; j++) {
+            document.getElementsByClassName("boundary")[j].style.backgroundColor = " #eeeeee";
+        }
+    });
+
+    var score=0;
+    var scoreValue = document.createElement('div');
+    scoreValue.id = 'scoreID';
+    scoreValue.innerHTML= score;
+
+    document.getElementById("start").addEventListener("click", function () {
+        scoreValue.innerHTML=0;
+        for (var j = 0; j < 5; j++) {
+            document.getElementsByClassName("boundary")[j].style.backgroundColor = " #eeeeee";
+        }
+        scoreValue.innerHTML=0;
+        document.getElementById('scoreID').innerHTML= score;
+        // document.getElementsByClassName("example")[0].createElement('h3').innerHTML=scoreValue;
+    });
+
+
 
     // start = document.getElementById("start");
     // start.addEventListener("mousemove", function (e) {
