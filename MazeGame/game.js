@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             for (var j = 0; j < 5; j++) {
                 document.getElementsByClassName("boundary")[j].style.backgroundColor = " #ff8888";
+                document.getElementById("status").innerHTML= "Hard Luck! You lost.";
             }
             alert("You lost! Move over the Start Button to restart.");
         }
@@ -48,8 +49,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
         for (var j = 0; j < 5; j++) {
             document.getElementsByClassName("boundary")[j].style.backgroundColor = " #eeeeee";
         }
+        document.getElementById("status").innerHTML='Begin by moving your mouse over the "S".';
         scoreValue.innerHTML=0;
-        document.getElementById('scoreID').innerHTML= score;
+        document.getElementById('scoreID').innerHTML= 0;
         // document.getElementsByClassName("example")[0].createElement('h3').innerHTML=scoreValue;
     });
 
