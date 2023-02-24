@@ -39,14 +39,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     });
 
+    var scoreValue=0;
+    var Score = document.createElement('div');
+    Score.id = "Score";
+    Score.innerText = scoreValue;
 
-    
-
-
-    var score=0;
-    var scoreValue = document.createElement('div');
-    scoreValue.id = 'scoreID';
-    scoreValue.innerHTML= score;
+    Score.innerHTML= scoreValue;
+    console.log(scoreValue);
+    document.body.appendChild(Score);
+    // document.getElementById("Score").style.color = "black";
+    document.getElementById('Score').innerHTML= 0;
 
     document.getElementById("start").addEventListener("click", function () {
         scoreValue.innerHTML=0;
@@ -55,11 +57,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
         document.getElementById("status").innerHTML='Begin by moving your mouse over the "S".';
         scoreValue.innerHTML=0;
-        document.getElementById('scoreID').innerHTML= 0;
+        document.getElementById('Score').innerHTML= 0;
         // document.getElementsByClassName("example")[0].createElement('h3').innerHTML=scoreValue;
     });
-
-
 
     start = document.getElementById("start");
     start.addEventListener("mousemove", function (e) {
