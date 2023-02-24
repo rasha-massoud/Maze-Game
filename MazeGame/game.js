@@ -2,10 +2,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     var scoreValue = 0;
 
+    var elemInitialSPos = document.getElementById("start");
+    var rectInitialSPos = elemInitialSPos.getBoundingClientRect();
+    
     document.getElementsByTagName("body")[0].addEventListener("mousemove", function (e) {
         var x = e.clientX;
         var y = e.clientY;
-        console.log(x, y);
+        // console.log(x, y);
 
         var elem1 = document.getElementsByClassName("boundary")[0];
         var rect1 = elem1.getBoundingClientRect();
@@ -71,8 +74,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         var x = e.clientX;
         var y = e.clientY;
 
-        start.style.left += "px";
-        start.style.top += "px";
+        start.style.left= y+ "px" ;
+        start.style.top = x+ "px" ;
 
 
         var elemS = document.getElementById("start");
