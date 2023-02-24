@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 
+    var scoreValue = 0;
 
     document.getElementsByTagName("body")[0].addEventListener("mousemove", function (e) {
         var x = e.clientX;
@@ -27,9 +28,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             for (var j = 0; j < 5; j++) {
                 document.getElementsByClassName("boundary")[j].style.backgroundColor = " #ff8888";
-                document.getElementById("status").innerHTML= "Hard Luck! You lost.";
+                document.getElementById("status").innerHTML = "Hard Luck! You lost.";
             }
             alert("You lost! Move over the Start Button to restart.");
+            scoreValue-=10;
+            Score.innerHTML = scoreValue;
         }
     });
 
@@ -39,26 +42,27 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     });
 
-    var scoreValue=0;
     var Score = document.createElement('div');
     Score.id = "Score";
     Score.innerText = scoreValue;
 
-    Score.innerHTML= scoreValue;
+    Score.innerHTML = scoreValue;
     console.log(scoreValue);
     document.body.appendChild(Score);
-    // document.getElementById("Score").style.color = "black";
-    document.getElementById('Score').innerHTML= 0;
+
+    document.getElementById('Score').innerHTML = 0;
+    document.getElementById('Score').style.textAlign = " center";
+
 
     document.getElementById("start").addEventListener("click", function () {
-        scoreValue.innerHTML=0;
+        scoreValue.innerHTML = 0;
         for (var j = 0; j < 5; j++) {
             document.getElementsByClassName("boundary")[j].style.backgroundColor = " #eeeeee";
         }
-        document.getElementById("status").innerHTML='Begin by moving your mouse over the "S".';
-        scoreValue.innerHTML=0;
-        document.getElementById('Score').innerHTML= 0;
-        // document.getElementsByClassName("example")[0].createElement('h3').innerHTML=scoreValue;
+        document.getElementById("status").innerHTML = 'Begin by moving your mouse over the "S".';
+        scoreValue = 0;
+        scoreValue.innerHTML = 0;
+        document.getElementById('Score').innerHTML = 0;
     });
 
     start = document.getElementById("start");
@@ -77,8 +81,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         var elemB = document.getElementById("end");
         var rectB = elemB.getBoundingClientRect();
 
-        if (rectS==rectB){
-            document.getElementById("status").innerHTML='Congratulations you win!';
+        if (rectS == rectB) {
+            document.getElementById("status").innerHTML = 'Congratulations you win!';
+            scoreValue+=5;
+            Score.innerHTML = scoreValue;
         }
     });
 });
