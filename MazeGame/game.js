@@ -39,6 +39,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     });
 
+
+    
+
+
     var score=0;
     var scoreValue = document.createElement('div');
     scoreValue.id = 'scoreID';
@@ -57,15 +61,25 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-    // start = document.getElementById("start");
-    // start.addEventListener("mousemove", function (e) {
+    start = document.getElementById("start");
+    start.addEventListener("mousemove", function (e) {
 
-    // var x = e.clientX;
-    // var y = e.clientY;
+        var x = e.clientX;
+        var y = e.clientY;
 
-    // start.style.left += "px";
-    // start.style.top += "px";
+        start.style.left += "px";
+        start.style.top += "px";
 
-    // $('#element').position()
+
+        var elemS = document.getElementById("start");
+        var rectS = elemS.getBoundingClientRect();
+
+        var elemB = document.getElementById("end");
+        var rectB = elemB.getBoundingClientRect();
+
+        if (rectS==rectB){
+            document.getElementById("status").innerHTML='Congratulations you win!';
+        }
+    });
 });
 
